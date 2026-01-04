@@ -1,7 +1,11 @@
-# Comp3010 Coursework2
- BOTSv3 Incident Analysis
+## Comp3010 Coursework2
+ # BOTSv3 Incident Analysis
 
- ## Splunk Installation & Dataset Ingestion
+ ## Introduction
+ 
+ ## SOC Roles & Incident Handling Reflection
+
+ ## Installation & Data Preparation
  ### Splunk Installation
  - Installed the 10.0.1 version of Splunk Enterprise.
  - I used the following commands:
@@ -17,7 +21,7 @@
  - I searched the following in splunk to confirm the events were visible:
    index=botsv3 earliest=0
 
-## BOTSv3 Guided Questions 1-7
+## Guided Questions 
 Questions 1-7 of the BOTSv3 guided questions answered and screenshots uploaded as evidence. Question 8 still to be completed.
 ### Q1 - List out the IAM users that accessed an AWS service (successfully or unsuccessfully) in Frothly's AWS environment? 
 **Query:**
@@ -84,6 +88,8 @@ frothlywebcode | search txt | search REST.PUT. OBJECT
 **Answer:**
 
 OPEN_BUCKET_PLEASE_FIX.txt
+
+## Conclusion,References and Presentation
 
 
 
