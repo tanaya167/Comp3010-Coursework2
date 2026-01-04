@@ -2,6 +2,16 @@
  # BOTSv3 Incident Analysis
 
  ## Introduction
+ The role of the Security Operations Centre (SOC) is to detect, analyse and respond to security incidents in real time.  This investigation was conducted from the perspective of a security operations centre analyst(SOC) using Splunk as a Security Information and Event Management(SIEM) platform. Splunk was used to query and analyse data to identify misconfigurations, suspicious activity and potential risks within an enterprise environment.  Scapicchio, M., Downie, A. and Finio, M. (2025)
+ 
+The dataset used was the Boss of the SOC Dataset Version 3 (BOTSv3). It is a pre-indexed sample security dataset and Capture the flag (CTF) platform crated by Splunk to train and test cybersecurity skills. It simulates a realistic security incident inside a fictional brewing company called “Frothly”. BOTSv3 provides a large group of logs including network, endpoint, email and cloud service data from environments like Amazon AWS and Microsoft Azure.  analyse these logs using Splunk’s Search processing Language (SPL) to investigate the attack and answer the guided questions that have been provided. 
+
+The objectives of this investigation include analysing the logs provided by the BOTSv3  dataset  by using Splunk’s Search processing Language (SPL) to investigate the attack and answer the selected set of guided 200-level BOTSv3 questions by constructing Splunk queries, analysing results and presenting evidence to support my findings. . The investigation was focused on identifying AWS user activity, detecting insecure cloud configurations, analysing endpoint system information, and demonstrating how such findings are relevant to SOC operations and incident response.
+
+The scope of this investigation was limited to questions 1–8 of the provided guided question set, using only the data available within the BOTSv3 dataset and does not include live threats or incident response in real time. It is assumed that the dataset is complete, accurate, and representative of Frothly’s operational environment during the simulated timeframe. All findings are based solely on the logs present within Splunk. 
+
+This report will present the technical setup, including the installation of Splunk and the retrieval and preparation of the dataset. Also provided is a reflection on the SOC roles and incident handling, the findings of the investigation and evidence. This report will demonstrate how Splunk can be used to support effective security monitoring and incident handling. 
+
  
  ## SOC Roles & Incident Handling Reflection
 
