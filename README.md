@@ -33,22 +33,17 @@ Finally, eradication and recovery focus on identifying all affected hosts, remov
 To complete the BOTSv3 questions, Splunk Enterprise was installed on an Ubuntu virtual machine to replicate a SOC SIEM environment. A Linux-based  virtual machine was chosen as Linux platforms are widely recognised in security operations due to their stability, security and integration flexibility with SIEM systems. These systems allow for secure log handling and centralised analysis, which reflect important SOC infrastructure practices [5].
 
 Splunk was installed from the official Splunk website as the BOTSv3 GitHub repo recommended. The installation instructed to extract the dataset into the $SPLUNK_HOME/etc/apps directory. Therefore, the .tgz package was chosen instead of the .deb or .rpm package, which install software on a Linux system. The .tgz archive contains the requires dataset structure for Splunk ingestion which makes it the appropriate choice for this setup. In SOC environments, typically ingested as structured log files and archives rather than operating system installation packages, reinforcing this choice [6]. After installation was complete, access to the Splunk web interface was verified through the browser. 
-![Downloading Splunk](setupScreenshots/InstallingSplunk.png) 
+<img src="setupScreenshots/InstallingSplunk.png" width="400"> <img src="setupScreenshots/SplunkInstallation.png" width="400"> 
+<img src="setupScreenshots/SplunkHomepage.png" width="400">
 
-![Splunk Installation](setupScreenshots/SplunkInstallation.png) 
-
-![Splunk Homepage](setupScreenshots/SplunkHomepage.png)
 
 The BOTSv3 dataset was downloaded from the Splunk BOTSv3 GitHub repository and deployed as a Splunk app, following the repository’s recommendation. This approach automatically configured all required indexes, source types and dashboards. By doing this, the dataset is ingested in an organised way and easy to follow which reflects the deployment of data sources by SOCs in real world environments. 
-![Downloading Dataset](setupScreenshots/DownloadingDataset.png) 
-
-![Dataset Ingestion](setupScreenshots/DatasetIngestion.png) 
-
-![Dataset Ingestion Continued](setupScreenshots/DatasetIngestion2.png)
+<img src="setupScreenshots/DownloadingDataset.png" width="400"> <img src="setupScreenshots/DatasetIngestion.png" width="400">
+<img src="setupScreenshots/DatasetIngestion2.png" width="400">
 
 To validate that the dataset had been ingested properly and available for analysis, searches were performed across the BOTSv3 index to confirm the presence of events. This is shown in the screenshot below, using the query “index=botsv3 earliest=0”. 
 
-![Validation of Dataset](setupScreenshots/ValidationofDataset.png)  
+<img src="setupScreenshots/ValidationofDataset.png" width="400">
 
 ## Guided Questions 
 ### Q1 - List out the IAM users that accessed an AWS service (successfully or unsuccessfully) in Frothly's AWS environment? 
@@ -63,7 +58,8 @@ To validate that the dataset had been ingested properly and available for analys
 **Answer:**
 
 `bstoll,btun,splunk_access,web_admin`
-![List of IAM users](BOTSv3Questions1-7Screenshots/Question1.png)  
+
+<img src="BOTSv3Questions1-7Screenshots/Question1.png" width="400">
 
 This finding supports the detection phase of the incident handling lifecycle by identifying IAM users involved in potentially suspicious AWS activity. It also supports the response stage of the lifecycle, as identifying users is essential when investigating and containing cloud based incidents.  
 ### Q2 - What field would you use to alert that AWS API activity has occurred without MFA (multi-factor authentication)? 
@@ -78,7 +74,8 @@ This finding supports the detection phase of the incident handling lifecycle by 
 **Answer:**
 
 `userIdentity.sessionContext.attributes.mfaAuthenticated`
-![API without MFA field](BOTSv3Questions1-7Screenshots/Question2.png)  
+
+<img src="BOTSv3Questions1-7Screenshots/Question2.png" width="400">
 
 This finding supports the preparation and prevention stage of the incident handling lifecycle as it establishes the key field needed to determine if API activity has occurred without MFA. Analyst can use the uncovered information to then consider possible attacks that could happen and produce appropriate response plans. 
 ### Q3 - What is the processor number used on the web servers?  
@@ -90,7 +87,8 @@ This finding supports the preparation and prevention stage of the incident handl
 **Answer:**
 
 `E5-2676`
-![Processor Number](BOTSv3Questions1-7Screenshots/Question3.1.png)  
+
+img src="BOTSv3Questions1-7Screenshots/Question3.1.png" width="400">
 
 This finding aligns with the preparation and prevention stage of the incident handling lifecycle as it involves determining what assets exist and establishing a normal baseline of how the systems are configured. Analyst can use this information to then detect abnormal systems and unexpected changes. 
 ### Q4 - What is the event ID of the API call that enabled public access? 
@@ -104,7 +102,8 @@ responseElements, eventName`
 **Answer:**
 
 `ab45689d-69cd-41e7-8705-5350402cf7ac`
-![All Users](BOTSv3Questions1-7Screenshots/Question4.4.png)  
+
+<img src="BOTSv3Questions1-7Screenshots/Question4.4.png" width="400">
 
 This finding supports the detection stage of the incident handing lifecycle as it involves finding and analysing the first sign of the incident which will then become critical when writing an incident report. 
 ### Q5 -	What is Bud's username? 
@@ -116,9 +115,8 @@ This finding supports the detection stage of the incident handing lifecycle as i
 **Answer:**
 
 `bstoll`
- ![Splunk Search](BOTSv3Questions1-7Screenshots/Question5.1.png) 
- 
- ![Username](BOTSv3Questions1-7Screenshots/Question5.3.png)  
+
+ <img src="BOTSv3Questions1-7Screenshots/Question5.1.png" width="400"> <img src="BOTSv3Questions1-7Screenshots/Question5.3.png" width="400">
 
 The SOC response stage of the incident handling lifecycle involves containing the attack before it causes damage. This is first done through identifying the attacking host, which is exactly what this finding identifies. The user has now been identified and actions such as disabling the account can be performed to contain the attack.
 ### Q6 - 6.	What is the name of the S3 bucket that was made publicly accessible? 
@@ -131,7 +129,8 @@ The SOC response stage of the incident handling lifecycle involves containing th
 **Answer:**
 
 `frothlywebcode`
-![Bucket name](BOTSv3Questions1-7Screenshots/Question6.png)  
+
+<img src="BOTSv3Questions1-7Screenshots/Question6.png" width="400">
 
 In the previous question the attacking host was identified. Following on from that, this finding also aligns with the response stage by identifying the affected asset which tells analysts what data is under threat, which systems need repairing and how serious the attack is. 
 ### Q7 - What is the name of the text file that was successfully uploaded into the S3 bucket while it was publicly accessible? 
@@ -146,7 +145,8 @@ In the previous question the attacking host was identified. Following on from th
 **Answer:**
 
 `OPEN_BUCKET_PLEASE_FIX.txt`
- ![Name of the text file](BOTSv3Questions1-7Screenshots/Question7.png)  
+ 
+ <img src="BOTSv3Questions1-7Screenshots/Question7.png" width="400">
 
 This finding aligns with the eradication and recovery stage as it determines if data was uploaded while  the S3 bucket was publicly accessible, if the incident was a data breach and the impact of the incident. This finding confirms data was uploaded and now means that the data can be eradicated. 
 ### Q8 - What is the FQDN of the endpoint that is running a different Windows operating system edition than the others?
@@ -168,11 +168,9 @@ This finding aligns with the eradication and recovery stage as it determines if 
 **Answer:**
 
 `BSTOLL-L.froth.ly`
-![List of Hosts](BOTSv3Question8Screenshots/hosts.png)
 
-![Anomalous Windows OS edition](BOTSv3Question8Screenshots/windowsOSedition.png)  
-
-![FQDN](BOTSv3Question8Screenshots/FQDN.png)
+<img src="BOTSv3Question8Screenshots/hosts.png" width="400"> <img src="BOTSv3Question8Screenshots/windowsOSedition.png" width="400"> 
+<img src="BOTSv3Question8Screenshots/FQDN.png" width="400">
 
  
 This finding supports the detection stage of the  incident handling lifecycle as it involves comparing OS editions, hosts and FQDNs to identify the anomalous endpoint. This question reveals an anomalous OS version which could indicate compromised hosts, unapproved systems or misconfiguration.
