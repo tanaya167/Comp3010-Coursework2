@@ -46,7 +46,7 @@ The BOTSv3 dataset was downloaded from the Splunk BOTSv3 GitHub repository and d
 
 ![Dataset Ingestion Continued](setupScreenshots/DatasetIngestion2.png)
 
-To validate that the dataset had been ingested properly and available for analysis, searches were performed across the BOTSv3 index to confirm the presence of events. This is shown below in figure 7, using the query “index=botsv3 earliest=0”. 
+To validate that the dataset had been ingested properly and available for analysis, searches were performed across the BOTSv3 index to confirm the presence of events. This is shown in the screenshot below, using the query “index=botsv3 earliest=0”. 
 
 ![Validation of Dataset](setupScreenshots/ValidationofDataset.png)  
 
@@ -168,6 +168,12 @@ This finding aligns with the eradication and recovery stage as it determines if 
 **Answer:**
 
 `BSTOLL-L.froth.ly`
+![List of Hosts](BOTSv3Question8Screenshots/hosts.png)
+
+![Anomalous Windows OS edition](BOTSv3Question8Screenshots/windowsOSedition.png)  
+
+![FQDN](BOTSv3Question8Screenshots/FQDN.png)
+
  
 This finding supports the detection stage of the  incident handling lifecycle as it involves comparing OS editions, hosts and FQDNs to identify the anomalous endpoint. This question reveals an anomalous OS version which could indicate compromised hosts, unapproved systems or misconfiguration.
 
