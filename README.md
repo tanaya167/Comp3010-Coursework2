@@ -1,4 +1,4 @@
-## Comp3010 Coursework2
+### Comp3010 Coursework2
  # BOTSv3 Incident Analysis
 
  ## Introduction
@@ -149,9 +149,29 @@ This finding aligns with the eradication and recovery stage as it determines if 
 
 `BSTOLL-L.froth.ly`
 
-This finding supports the detection stage of the  incident handling lifecycle as it involves comparing OS editions, hosts and FQDNs to identify the anomalous endpoint. This question reveals an anomalous OS version which could indicate compromised hosts, unapproved systems or misconfiguration. 
-## Conclusion,References and Presentation
+This finding supports the detection stage of the  incident handling lifecycle as it involves comparing OS editions, hosts and FQDNs to identify the anomalous endpoint. This question reveals an anomalous OS version which could indicate compromised hosts, unapproved systems or misconfiguration.
 
+
+## Conclusion
+The BOTSv3 Investigation revealed that an IAM bstoll made an API call which allowed public access to an S3 bucket called frothlywebcode, during a text file called OPEN_BUCKET_PLEASE_FIX.txt was successfully uploaded. This scenario highlights the risk of cloud misconfigurations and improper access controls.
+
+Th exercise underlines key SOC, including the importance of centralised logging and establishing a normal or baseline knowledge of systems, users, OS versions, etc, to then be able to detect anomalies. This scenario also highlights the importance of a structured investigation plan such as an incident handling lifecycle that provides a step by step analysis to handle attacks. Real world SOC challenges are reflected through IAM abuse, cloud configuration errors and endpoint anomalies. 
+
+Improvements for detection include enforcing compulsory MFA for IAM users and placing alerts on PutBucketAcl events, public S3 access changes and API activity without MFA. The response process could be improved by containing the incident immediately by revoking public bucket access and disabling compromised credentials. Learning from the events and feeding it back into the SOC processes and incident handling Lifecyle could be beneficial for post incident response. 
+
+
+## References 
+[1] M. Scapicchio, A. Downie, and M. Finio, “What is a Security Operations Center (SOC)?,” IBM, 2025. [Online]. Available: https://www.ibm.com/think/topics/security-operations-center. 
+
+[2] M. Oguntoyinbo, “Cybersecurity: Mitigating the risk as SOC alert analyst and incident responder,” Theseus, 2025. [Online]. Available: https://www.theseus.fi/bitstream/handle/10024/893410/Oguntoyinbo_Mayowa.pdf?sequence=3. 
+
+[3] M. Osorno, T. Millar, and D. Rager, “Coordinated cybersecurity incident handling: Roles, processes, and coordination networks for crosscutting incidents,” in Proc. 16th Int. Command and Control Research and Technology Symp. (ICCRTS), Québec City, QC, Canada, Jun. 21–23, 2011.
+
+[4] Cynet, “NIST incident response: 4-step life cycle, templates and tips,” Cynet Unified, AI-Powered Security Platform for MSPs & SMEs, 2025. [Online]. Available: https://www.cynet.com/incident-response/nist-incident-response/. 
+
+[5] Wafaicloud Team, “Linux secure SIEM integration best practices,” Wafaicloud Blogs, 2025. [Online]. Available: https://wafaicloud.com/blog/linux-secure-siem-integration-best-practices/. Accessed: 
+
+[6] R. Kent and M. Souppaya, Guide to Computer Security Log Management, NIST Special Publication 800-92, Sep. 2006
 
 
 
