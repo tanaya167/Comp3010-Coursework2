@@ -33,11 +33,13 @@ Finally, eradication and recovery focus on identifying all affected hosts, remov
 To complete the BOTSv3 questions, Splunk Enterprise was installed on an Ubuntu virtual machine to replicate a SOC SIEM environment. A Linux-based  virtual machine was chosen as Linux platforms are widely recognised in security operations due to their stability, security and integration flexibility with SIEM systems. These systems allow for secure log handling and centralised analysis, which reflect important SOC infrastructure practices [5].
 
 Splunk was installed from the official Splunk website as the BOTSv3 GitHub repo recommended. The installation instructed to extract the dataset into the $SPLUNK_HOME/etc/apps directory. Therefore, the .tgz package was chosen instead of the .deb or .rpm package, which install software on a Linux system. The .tgz archive contains the requires dataset structure for Splunk ingestion which makes it the appropriate choice for this setup. In SOC environments, typically ingested as structured log files and archives rather than operating system installation packages, reinforcing this choice [6]. After installation was complete, access to the Splunk web interface was verified through the browser. 
+
 <img src="setupScreenshots/InstallingSplunk.png" width="400"> <img src="setupScreenshots/SplunkInstallation.png" width="400"> 
 <img src="setupScreenshots/SplunkHomepage.png" width="400">
 
 
 The BOTSv3 dataset was downloaded from the Splunk BOTSv3 GitHub repository and deployed as a Splunk app, following the repository’s recommendation. This approach automatically configured all required indexes, source types and dashboards. By doing this, the dataset is ingested in an organised way and easy to follow which reflects the deployment of data sources by SOCs in real world environments. 
+
 <img src="setupScreenshots/DownloadingDataset.png" width="400"> <img src="setupScreenshots/DatasetIngestion.png" width="400">
 <img src="setupScreenshots/DatasetIngestion2.png" width="400">
 
