@@ -1,5 +1,6 @@
 ### Comp3010 Coursework2
  # BOTSv3 Incident Analysis
+ Video Link - https://youtu.be/zJfTxIQDU48
 
  ## Introduction
 A Security Operations Centre (SOC) is responsible for detecting, analysing and responding to cybersecurity incidents in real time.  This investigation was conducted from the perspective of a SOC analyst using Splunk as a Security Information and Event Management(SIEM) platform to analyse data and identify misconfigurations, suspicious activity and potential risks within an enterprise environment [1].
@@ -139,7 +140,7 @@ In the previous question the attacking host was identified. Following on from th
 
 **Query:**
 
-`index=botsv3 sourcetype=aws: s3:accesslogs earliest=08/20/2018:14:01:46 latest=08/20/2018:14:57:54 
+`index=botsv3 sourcetype=aws:s3:accesslogs earliest=08/20/2018:14:01:46 latest=08/20/2018:14:57:54 
 | search frothlywebcode 
 | search txt 
 | search REST.PUT. OBJECT`
@@ -154,9 +155,6 @@ This finding aligns with the eradication and recovery stage as it determines if 
 ### Q8 - What is the FQDN of the endpoint that is running a different Windows operating system edition than the others?
 
 **Query:**
-
-`index=botsv3 
-| stats count by sourcetype`
 
 `index=botsv3 sourcetype=WinHostMon 
 | stats values(os) by host` 
